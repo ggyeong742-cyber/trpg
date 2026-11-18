@@ -12,53 +12,160 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#111827;color:#e5e7eb;font-family:Arial,'Malgun Gothic',sans-serif}
+
+body{
+  margin:0;
+  background:#111827;
+  color:#e5e7eb;
+  font-family:Arial,'Malgun Gothic',sans-serif;
+}
+
 button,input,select{font:inherit}
-button{border:0;border-radius:8px;padding:10px 14px;background:#2563eb;color:white;cursor:pointer}
+
+button{
+  border:0;
+  border-radius:8px;
+  padding:10px 14px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
 button:disabled{opacity:.4;cursor:not-allowed}
 .secondary{background:#374151}
 .danger{background:#b91c1c}
 .green{background:#15803d}
+.google{background:white;color:#222;border:1px solid #ccc}
 .hidden{display:none!important}
+
 .wrap{max-width:1200px;margin:auto;padding:18px}
-.panel{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:15px;margin-bottom:14px}
+
+.panel{
+  background:#1f2937;
+  border:1px solid #374151;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:14px;
+}
+
 .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.grow{flex:1}
+.grow{flex:1;min-width:0}
 .muted{color:#9ca3af;font-size:13px}
-input,select{background:#111827;color:#f9fafb;border:1px solid #4b5563;border-radius:8px;padding:10px;max-width:100%}
+.warn{color:#fca5a5}
+.status{color:#86efac}
+
+input,select{
+  background:#111827;
+  color:#f9fafb;
+  border:1px solid #4b5563;
+  border-radius:8px;
+  padding:10px;
+  max-width:100%;
+}
+
 h1,h2,h3{margin:0 0 12px}
 h1{letter-spacing:2px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.players{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.player{background:#111827;border:1px solid #4b5563;border-radius:10px;padding:10px;cursor:pointer;text-align:center}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.players{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.player{
+  background:#111827;
+  border:1px solid #4b5563;
+  border-radius:10px;
+  padding:10px;
+  cursor:pointer;
+  text-align:center;
+  color:white;
+}
+
 .player .avatar{font-size:28px}
 .player.active{border-color:#60a5fa}
 .player.gm{box-shadow:inset 0 0 0 1px #eab308}
-.chatlog{height:330px;overflow:auto;background:#0b1220;border-radius:9px;padding:10px}
-.msg{padding:8px 9px;border-bottom:1px solid #263244;white-space:pre-wrap;overflow-wrap:anywhere}
-.msg .meta{font-size:12px;color:#9ca3af;margin-bottom:4px}
+
+.chatlog{
+  height:330px;
+  overflow:auto;
+  background:#0b1220;
+  border-radius:9px;
+  padding:10px;
+}
+
+.msg{
+  padding:8px 9px;
+  border-bottom:1px solid #263244;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.msg .meta{
+  font-size:12px;
+  color:#9ca3af;
+  margin-bottom:4px;
+}
+
 .msg.narration{border-left:3px solid #eab308}
 .msg.speech{border-left:3px solid #60a5fa}
 .msg.skill{border-left:3px solid #a78bfa}
 .msg.item{border-left:3px solid #34d399}
 .msg.system{color:#a7f3d0}
+
 .small{font-size:12px}
-.tag{display:inline-block;background:#374151;padding:3px 7px;border-radius:20px;font-size:12px;margin:2px}
-.top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.statgrid label{font-size:12px;color:#9ca3af}
-.statgrid input{width:100%}
-.skillrow{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;margin:6px 0}
+
+.tag{
+  display:inline-block;
+  background:#374151;
+  padding:3px 7px;
+  border-radius:20px;
+  font-size:12px;
+  margin:2px;
+}
+
 .help{line-height:1.6;color:#cbd5e1;font-size:13px}
-.status{color:#86efac}
-.warn{color:#fca5a5}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.statgrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.statgrid label{
+  font-size:12px;
+  color:#9ca3af;
+}
+
+.skillrow{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:8px;
+  margin:6px 0;
+}
+
+hr{border:0;border-top:1px solid #374151;margin:18px 0}
 
 @media(max-width:650px){
-.wrap{padding:10px}
-.grid,.players{grid-template-columns:1fr 1fr}
-.chatlog{height:300px}
-.statgrid{grid-template-columns:repeat(2,1fr)}
-.top{align-items:flex-start;flex-direction:column}
+  .wrap{padding:10px}
+  .grid,.players{grid-template-columns:1fr 1fr}
+  .chatlog{height:300px}
+  .statgrid{grid-template-columns:repeat(2,1fr)}
+  .top{align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
@@ -67,130 +174,204 @@ h1{letter-spacing:2px}
 <div class="wrap">
 
 <header class="top">
-<div>
-<h1>ONLINE TRPG</h1>
-<div class="muted">D20 판정 · 실시간 방 · 최대 4명</div>
-</div>
-<div id="authStatus" class="muted">Firebase 연결 중...</div>
+  <div>
+    <h1>ONLINE TRPG</h1>
+    <div class="muted">D20 판정 · 실시간 방 · 최대 4명</div>
+  </div>
+  <div id="authStatus" class="muted">연결 중...</div>
 </header>
 
-<section id="lobby">
+<!-- 로그인 화면 -->
+<section id="loginPanel" class="panel hidden">
 
-<div class="panel">
-<h2>방 만들기</h2>
-<div class="row">
-<input id="createName" placeholder="캐릭터 이름" maxlength="16">
-<input id="createRace" placeholder="종족 (예: 인간)" maxlength="16">
-<button id="createBtn">방 만들기</button>
-</div>
-<p class="help">
-방을 만든 사람이 방장이 됩니다.
-방장은 참가자 중 한 명을 GM으로 지정할 수 있으며,
-자기 자신도 GM으로 지정할 수 있습니다.
-</p>
-</div>
+  <h2>ONLINE TRPG 로그인</h2>
+  <p class="muted">로그인 후 게임을 이용할 수 있습니다.</p>
 
-<div class="panel">
-<h2>방 참가</h2>
-<div class="row">
-<input id="joinCode" placeholder="방 코드" maxlength="8" style="text-transform:uppercase">
-<input id="joinName" placeholder="캐릭터 이름" maxlength="16">
-<input id="joinRace" placeholder="종족" maxlength="16">
-<button id="joinBtn">참가하기</button>
-</div>
-</div>
+  <button id="googleLogin" class="google" style="width:100%">
+    Google 계정으로 로그인
+  </button>
 
-<div id="lobbyError" class="warn"></div>
+  <hr>
+
+  <h3>이메일 로그인</h3>
+
+  <input
+    id="email"
+    type="email"
+    placeholder="이메일 주소"
+    autocomplete="email"
+    style="width:100%;margin-bottom:10px"
+  >
+
+  <input
+    id="password"
+    type="password"
+    placeholder="비밀번호 (6자 이상)"
+    autocomplete="current-password"
+    style="width:100%;margin-bottom:10px"
+  >
+
+  <div class="row">
+    <button id="emailLogin" class="grow">
+      로그인
+    </button>
+
+    <button id="emailRegister" class="green grow">
+      회원가입
+    </button>
+  </div>
+
+  <p id="loginError" class="warn"></p>
+
+  <div id="loggedInfo" class="hidden">
+    <p id="accountInfo" class="status"></p>
+    <button id="logoutBtn" class="danger">로그아웃</button>
+  </div>
+
 </section>
 
+<!-- 로비 -->
+<section id="lobby" class="hidden">
+
+  <div class="panel">
+    <h2>방 만들기</h2>
+
+    <div class="row">
+      <input id="createName" placeholder="캐릭터 이름" maxlength="16">
+      <input id="createRace" placeholder="종족" maxlength="16">
+      <button id="createBtn">방 만들기</button>
+    </div>
+
+    <p class="help">
+      방장이 GM을 지정할 수 있습니다.
+      방장 본인을 GM으로 지정하는 것도 가능합니다.
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>방 참가</h2>
+
+    <div class="row">
+      <input id="joinCode" placeholder="방 코드" maxlength="8">
+      <input id="joinName" placeholder="캐릭터 이름" maxlength="16">
+      <input id="joinRace" placeholder="종족" maxlength="16">
+      <button id="joinBtn">참가하기</button>
+    </div>
+  </div>
+
+  <div id="lobbyError" class="warn"></div>
+
+</section>
+
+<!-- 게임 화면 -->
 <section id="game" class="hidden">
 
-<div class="top">
-<div>
-<h2>방 코드: <span id="roomCodeLabel"></span></h2>
-<div id="roomInfo" class="muted"></div>
-</div>
-<div class="row">
-<button id="copyCode" class="secondary">코드 복사</button>
-<button id="leaveBtn" class="danger">나가기</button>
-</div>
-</div>
+  <div class="top">
+    <div>
+      <h2>방 코드: <span id="roomCodeLabel"></span></h2>
+      <div id="roomInfo" class="muted"></div>
+    </div>
 
-<div class="grid">
+    <div class="row">
+      <button id="copyCode" class="secondary">코드 복사</button>
+      <button id="leaveBtn" class="danger">나가기</button>
+    </div>
+  </div>
 
-<div>
-<div class="panel">
-<div class="row" style="justify-content:space-between">
-<h3>플레이어</h3>
-<span class="muted" id="playerCount"></span>
-</div>
-<div class="players" id="playerSeats"></div>
-<p class="muted">플레이어 아이콘을 누르면 상태창을 확인할 수 있습니다.</p>
-</div>
+  <div class="grid">
 
-<div class="panel">
-<h3>상태창</h3>
-<div id="statusPanel" class="help">
-플레이어 아이콘을 선택하세요.
-</div>
-</div>
+    <div>
 
-<div class="panel" id="gmPanel">
-<h3>GM 관리</h3>
-<div id="gmControls"></div>
-</div>
-</div>
+      <div class="panel">
+        <div class="row" style="justify-content:space-between">
+          <h3>플레이어</h3>
+          <span id="playerCount" class="muted"></span>
+        </div>
 
-<div>
-<div class="panel">
-<div class="row" style="justify-content:space-between">
-<h3>진행 채팅</h3>
-<span id="turnLabel" class="tag">대기 중</span>
-</div>
+        <div id="playerSeats" class="players"></div>
 
-<div id="chatlog" class="chatlog"></div>
+        <p class="muted">
+          플레이어 아이콘을 누르면 상태창을 확인할 수 있습니다.
+        </p>
+      </div>
 
-<div class="row" style="margin-top:9px">
-<input id="chatInput" class="grow"
-placeholder='"대사" / \'진행 대사\' / //스킬 / (아이템)'
-maxlength="500">
-<button id="sendBtn">전송</button>
-</div>
+      <div class="panel">
+        <h3>상태창</h3>
+        <div id="statusPanel" class="help">
+          플레이어를 선택하세요.
+        </div>
+      </div>
 
-<div class="help">
-"대사" = 캐릭터 대사 ·
-'대사' = 일반/진행 대사 ·
- //스킬명 = 스킬 사용 ·
-(아이템명) = 아이템 사용
-</div>
-</div>
+      <div class="panel" id="gmPanel">
+        <h3>GM 관리</h3>
+        <div id="gmControls"></div>
+      </div>
 
-<div class="panel">
-<h3>D20 판정</h3>
-<div id="rollInfo" class="help">
-GM이 판정할 플레이어를 지정하면 해당 플레이어만 주사위를 굴릴 수 있습니다.
-</div>
+    </div>
 
-<div class="row">
-<select id="rollStat">
-<option value="str">힘</option>
-<option value="dex">민첩</option>
-<option value="int">지능</option>
-<option value="con">체력</option>
-<option value="wis">지혜</option>
-<option value="cha">매력</option>
-</select>
-<button id="rollBtn" class="green" disabled>D20 굴리기</button>
-</div>
-</div>
-</div>
-</div>
+    <div>
+
+      <div class="panel">
+
+        <div class="row" style="justify-content:space-between">
+          <h3>채팅</h3>
+          <span id="turnLabel" class="tag">대기 중</span>
+        </div>
+
+        <div id="chatlog" class="chatlog"></div>
+
+        <div class="row" style="margin-top:9px">
+          <input
+            id="chatInput"
+            class="grow"
+            placeholder='"대사" / \'진행 대사\' / //스킬 / (아이템)'
+            maxlength="500"
+          >
+          <button id="sendBtn">전송</button>
+        </div>
+
+        <div class="help">
+          "대사" : 캐릭터 대사<br>
+          '대사' : GM 진행 대사<br>
+          //스킬명 : 스킬 사용<br>
+          (아이템명) : 아이템 사용<br>
+          일반 문장 : 일반 채팅
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <h3>D20 판정</h3>
+
+        <div id="rollInfo" class="help">
+          GM이 판정 대상을 지정하면 주사위를 굴릴 수 있습니다.
+        </div>
+
+        <div class="row">
+          <select id="rollStat">
+            <option value="str">힘</option>
+            <option value="dex">민첩</option>
+            <option value="int">지능</option>
+            <option value="con">체력</option>
+            <option value="wis">지혜</option>
+            <option value="cha">매력</option>
+          </select>
+
+          <button id="rollBtn" class="green" disabled>
+            D20 굴리기
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
 </section>
 </div>
 
 <script>
-
-// Firebase Console > 프로젝트 설정 > 내 앱에서 발급한 실제 설정값으로 교체하세요.
 
 const firebaseConfig = {
   apiKey: "여기에_API_KEY",
@@ -200,749 +381,1285 @@ const firebaseConfig = {
   appId: "여기에_APP_ID"
 };
 
-const $=id=>document.getElementById(id);
+const $ = id => document.getElementById(id);
 
-const STAT_NAMES={
-str:'힘',
-dex:'민첩',
-int:'지능',
-con:'체력',
-wis:'지혜',
-cha:'매력'
+const STAT_NAMES = {
+  str:'힘',
+  dex:'민첩',
+  int:'지능',
+  con:'체력',
+  wis:'지혜',
+  cha:'매력'
 };
 
-let db,uid,roomId,roomRef,roomData=null,me=null,selectedUid=null,unsubs=[];
+let db;
+let auth;
+let uid = null;
 
-function err(s){
-$('lobbyError').textContent=s;
+let roomId = null;
+let roomRef = null;
+let roomData = null;
+
+let selectedUid = null;
+let roomListener = null;
+let messageListener = null;
+
+let lastMessages = {};
+
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+
+function init(){
+
+  try{
+
+    firebase.initializeApp(firebaseConfig);
+
+    db = firebase.database();
+    auth = firebase.auth();
+
+    auth.setPersistence(
+      firebase.auth.Auth.Persistence.LOCAL
+    ).then(()=>{
+
+      auth.onAuthStateChanged(user=>{
+
+        if(user){
+
+          uid = user.uid;
+
+          $('loginPanel').classList.remove('hidden');
+          $('lobby').classList.add('hidden');
+          $('game').classList.add('hidden');
+
+          $('loginError').textContent = '';
+
+          $('loggedInfo').classList.remove('hidden');
+
+          $('accountInfo').textContent =
+            '로그인 계정: ' +
+            (user.displayName || user.email || 'Google 사용자');
+
+          $('googleLogin').classList.add('hidden');
+          $('email').classList.add('hidden');
+          $('password').classList.add('hidden');
+          $('emailLogin').classList.add('hidden');
+          $('emailRegister').classList.add('hidden');
+
+          $('authStatus').textContent =
+            user.displayName || user.email || '로그인 완료';
+
+          $('authStatus').className = 'status';
+
+          if(!roomId){
+            $('loginPanel').classList.add('hidden');
+            $('lobby').classList.remove('hidden');
+          }
+
+        }else{
+
+          uid = null;
+
+          cleanupRoom();
+
+          $('loginPanel').classList.remove('hidden');
+          $('lobby').classList.add('hidden');
+          $('game').classList.add('hidden');
+
+          $('loggedInfo').classList.add('hidden');
+
+          $('googleLogin').classList.remove('hidden');
+          $('email').classList.remove('hidden');
+          $('password').classList.remove('hidden');
+          $('emailLogin').classList.remove('hidden');
+          $('emailRegister').classList.remove('hidden');
+
+          $('authStatus').textContent = '로그인 필요';
+          $('authStatus').className = 'muted';
+
+        }
+
+      });
+
+    }).catch(e=>{
+      $('loginError').textContent = e.message;
+    });
+
+  }catch(e){
+
+    $('authStatus').textContent = 'Firebase 오류';
+    $('loginError').textContent = e.message;
+
+  }
+
 }
 
-function isHost(){
-return !!roomData&&roomData.hostUid===uid;
-}
+$('googleLogin').onclick = async()=>{
 
-function isGM(){
-return !!roomData&&roomData.gmUid===uid;
-}
+  try{
 
-function playerList(){
-return Object.values(roomData?.players||{})
-.sort((a,b)=>(a.joinedAt||0)-(b.joinedAt||0));
-}
+    $('loginError').textContent = '';
 
-function myPlayer(){
-return roomData?.players?.[uid];
-}
+    await auth.signInWithPopup(googleProvider);
+
+  }catch(e){
+
+    $('loginError').textContent =
+      'Google 로그인 실패: ' + e.message;
+
+  }
+
+};
+
+
+$('emailRegister').onclick = async()=>{
+
+  const email = $('email').value.trim();
+  const password = $('password').value;
+
+  if(!email || !password){
+
+    $('loginError').textContent =
+      '이메일과 비밀번호를 입력하세요.';
+
+    return;
+
+  }
+
+  if(password.length < 6){
+
+    $('loginError').textContent =
+      '비밀번호는 6자 이상이어야 합니다.';
+
+    return;
+
+  }
+
+  try{
+
+    $('loginError').textContent = '';
+
+    await auth.createUserWithEmailAndPassword(
+      email,
+      password
+    );
+
+  }catch(e){
+
+    $('loginError').textContent =
+      '회원가입 실패: ' + e.message;
+
+  }
+
+};
+
+$('emailLogin').onclick = async()=>{
+
+  const email = $('email').value.trim();
+  const password = $('password').value;
+
+  if(!email || !password){
+
+    $('loginError').textContent =
+      '이메일과 비밀번호를 입력하세요.';
+
+    return;
+
+  }
+
+  try{
+
+    $('loginError').textContent = '';
+
+    await auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+
+  }catch(e){
+
+    $('loginError').textContent =
+      '로그인 실패: ' + e.message;
+
+  }
+
+};
+
+$('logoutBtn').onclick = async()=>{
+
+  if(roomId){
+
+    alert('먼저 게임방에서 나가세요.');
+    return;
+
+  }
+
+  try{
+
+    await auth.signOut();
+
+  }catch(e){
+
+    $('loginError').textContent =
+      '로그아웃 실패: ' + e.message;
+
+  }
+
+};
 
 function cleanName(s){
-return (s||'').trim().slice(0,16);
-}
-
-function systemMsg(text){
-return roomRef.child('messages').push({
-type:'system',
-text,
-by:'SYSTEM',
-at:Date.now()
-});
-}
-
-function showGame(){
-$('lobby').classList.add('hidden');
-$('game').classList.remove('hidden');
-$('roomCodeLabel').textContent=roomId;
-}
-
-function showLobby(){
-$('game').classList.add('hidden');
-$('lobby').classList.remove('hidden');
-}
-
-async function init(){
-try{
-firebase.initializeApp(firebaseConfig);
-db=firebase.database();
-
-const cred=await firebase.auth().signInAnonymously();
-uid=cred.user.uid;
-
-$('authStatus').textContent='Firebase 로그인 완료';
-$('authStatus').className='status';
-
-}catch(e){
-$('authStatus').textContent='Firebase 오류: '+e.message;
-$('authStatus').className='warn';
-$('lobbyError').textContent=
-'Firebase 설정 또는 익명 로그인 설정을 확인하세요. '+e.message;
-}
+  return (s||'').trim().slice(0,16);
 }
 
 function makePlayer(name,race){
-return {
-uid,
-name,
-race:race||'미정',
-avatar:'🧙',
-joinedAt:Date.now(),
-hp:30,
-maxHp:30,
-stats:{
-str:10,
-dex:10,
-int:10,
-con:10,
-wis:10,
-cha:10
-},
-skills:[],
-items:[]
-};
+
+  return {
+
+    uid,
+    name,
+    race:race||'미정',
+
+    avatar:'🧙',
+
+    joinedAt:Date.now(),
+
+    hp:30,
+    maxHp:30,
+
+    stats:{
+      str:10,
+      dex:10,
+      int:10,
+      con:10,
+      wis:10,
+      cha:10
+    },
+
+    skills:[],
+    items:[]
+
+  };
+
 }
 
 function randomCode(){
-return Math.random().toString(36).slice(2,7).toUpperCase();
+  return Math.random().toString(36).slice(2,7).toUpperCase();
 }
 
-$('createBtn').onclick=async()=>{
-if(!db||!uid)return;
-
-const name=cleanName($('createName').value);
-
-if(!name){
-err('캐릭터 이름을 입력하세요.');
-return;
+function showError(text){
+  $('lobbyError').textContent = text;
 }
 
-err('');
-
-for(let i=0;i<5;i++){
-const code=randomCode();
-const ref=db.ref('trpgRooms/'+code);
-
-try{
-const p=makePlayer(name,$('createRace').value.trim());
-
-await ref.transaction(cur=>
-cur===null?{
-hostUid:uid,
-gmUid:uid,
-status:'waiting',
-createdAt:Date.now(),
-players:{[uid]:p},
-messages:{},
-turn:{
-active:false,
-number:0,
-rollTarget:null,
-rollUsed:false
-}
-}:undefined
-);
-
-const snap=await ref.once('value');
-
-if(snap.exists()&&snap.val().hostUid===uid){
-enterRoom(code);
-return;
+function isHost(){
+  return roomData?.hostUid === uid;
 }
 
-}catch(e){
-err('방 생성 실패: '+e.message);
-return;
-}
+function isGM(){
+  return roomData?.gmUid === uid;
 }
 
-err('방 코드 생성에 실패했습니다. 다시 시도하세요.');
+function playerList(){
+
+  return Object.values(roomData?.players||{})
+    .sort((a,b)=>(a.joinedAt||0)-(b.joinedAt||0));
+
+}
+
+function myPlayer(){
+  return roomData?.players?.[uid];
+}
+
+
+$('createBtn').onclick = async()=>{
+
+  if(!uid)return;
+
+  const name = cleanName($('createName').value);
+
+  if(!name){
+    showError('캐릭터 이름을 입력하세요.');
+    return;
+  }
+
+  showError('');
+
+  for(let i=0;i<5;i++){
+
+    const code = randomCode();
+    const ref = db.ref('trpgRooms/'+code);
+
+    try{
+
+      const result = await ref.transaction(cur=>{
+
+        if(cur !== null)return;
+
+        const p = makePlayer(
+          name,
+          $('createRace').value.trim()
+        );
+
+        return {
+
+          hostUid:uid,
+          gmUid:uid,
+
+          status:'waiting',
+
+          createdAt:Date.now(),
+
+          players:{
+            [uid]:p
+          },
+
+          messages:{},
+
+          turn:{
+            active:false,
+            number:0,
+            rollTarget:null,
+            rollUsed:false
+          }
+
+        };
+
+      });
+
+      if(result.committed){
+
+        enterRoom(code);
+        return;
+
+      }
+
+    }catch(e){
+
+      showError('방 생성 실패: '+e.message);
+      return;
+
+    }
+
+  }
+
+  showError('방 코드 생성에 실패했습니다.');
+
 };
 
-$('joinBtn').onclick=async()=>{
-if(!db||!uid)return;
 
-const code=$('joinCode').value.trim().toUpperCase();
-const name=cleanName($('joinName').value);
+$('joinBtn').onclick = async()=>{
 
-if(!code||!name){
-err('방 코드와 캐릭터 이름을 입력하세요.');
-return;
-}
+  if(!uid)return;
 
-err('');
+  const code = $('joinCode').value.trim().toUpperCase();
+  const name = cleanName($('joinName').value);
 
-const ref=db.ref('trpgRooms/'+code);
+  if(!code || !name){
 
-try{
-const result=await ref.transaction(r=>{
-if(
-!r||
-r.status!=='waiting'||
-Object.keys(r.players||{}).length>=4||
-r.players?.[uid]
-)return;
+    showError('방 코드와 이름을 입력하세요.');
+    return;
 
-r.players=r.players||{};
-r.players[uid]=makePlayer(name,$('joinRace').value.trim());
+  }
 
-return r;
-});
+  showError('');
 
-if(!result.committed){
-err('방이 없거나 게임이 시작되었거나 인원이 가득 찼습니다.');
-return;
-}
+  const ref = db.ref('trpgRooms/'+code);
 
-enterRoom(code);
+  try{
 
-}catch(e){
-err('방 참가 실패: '+e.message);
-}
+    const result = await ref.transaction(r=>{
+
+      if(!r)return;
+
+      r.players = r.players || {};
+
+      if(
+        r.status !== 'waiting' ||
+        Object.keys(r.players).length >= 4 ||
+        r.players[uid]
+      )return;
+
+      r.players[uid] = makePlayer(
+        name,
+        $('joinRace').value.trim()
+      );
+
+      return r;
+
+    });
+
+    if(!result.committed){
+
+      showError(
+        '방이 없거나 게임이 시작되었거나 인원이 가득 찼습니다.'
+      );
+
+      return;
+
+    }
+
+    enterRoom(code);
+
+  }catch(e){
+
+    showError('방 참가 실패: '+e.message);
+
+  }
+
 };
 
 function enterRoom(code){
-roomId=code;
-roomRef=db.ref('trpgRooms/'+code);
-showGame();
 
-roomRef.on('value',snap=>{
-if(!snap.exists()){
-alert('방이 삭제되었습니다.');
-cleanup();
-return;
+  cleanupRoom();
+
+  roomId = code;
+
+  roomRef = db.ref('trpgRooms/'+code);
+
+  $('loginPanel').classList.add('hidden');
+  $('lobby').classList.add('hidden');
+  $('game').classList.remove('hidden');
+
+  $('roomCodeLabel').textContent = code;
+
+  roomListener = roomRef.on('value',snap=>{
+
+    if(!snap.exists()){
+
+      alert('방이 삭제되었습니다.');
+      cleanupRoom();
+
+      return;
+
+    }
+
+    roomData = snap.val();
+
+    if(!roomData.players?.[uid]){
+
+      alert('방에서 추방되었거나 참가 정보가 없습니다.');
+      cleanupRoom();
+
+      return;
+
+    }
+
+    render();
+
+  });
+
+  const msgRef = roomRef.child('messages');
+
+  messageListener = msgRef.limitToLast(150).on('value',snap=>{
+
+    renderMessages(snap);
+
+  });
+
 }
 
-roomData=snap.val();
-me=myPlayer();
-render();
-});
+function cleanupRoom(){
 
-roomRef.child('messages').limitToLast(150).on('child_added',snap=>{
-renderMessages();
-});
+  if(roomRef){
 
-unsubs.push(()=>roomRef.off());
+    if(roomListener){
+      roomRef.off('value',roomListener);
+    }
+
+    if(messageListener){
+      roomRef.child('messages')
+        .limitToLast(150)
+        .off('value',messageListener);
+    }
+
+  }
+
+  roomId = null;
+  roomRef = null;
+  roomData = null;
+
+  roomListener = null;
+  messageListener = null;
+
+  selectedUid = null;
+  lastMessages = {};
+
+  $('game').classList.add('hidden');
+
+  if(uid){
+    $('lobby').classList.remove('hidden');
+  }
+
 }
 
-function cleanup(){
-unsubs.forEach(f=>f());
-unsubs=[];
-roomId=null;
-roomData=null;
-showLobby();
-}
 
-$('leaveBtn').onclick=async()=>{
-if(!roomRef||!uid)return;
+$('leaveBtn').onclick = async()=>{
 
-if(isHost()){
-if(confirm('방장이 나가면 방이 삭제됩니다. 나갈까요?'))
-await roomRef.remove();
-}else{
-await roomRef.child('players/'+uid).remove();
-}
+  if(!roomRef || !uid)return;
 
-cleanup();
+  try{
+
+    if(isHost()){
+
+      if(!confirm('방장이 나가면 방이 삭제됩니다. 나갈까요?')){
+        return;
+      }
+
+      await roomRef.remove();
+
+    }else{
+
+      await roomRef.child('players/'+uid).remove();
+
+    }
+
+    cleanupRoom();
+
+  }catch(e){
+
+    alert('방 나가기 실패: '+e.message);
+
+  }
+
 };
 
-$('copyCode').onclick=()=>{
-navigator.clipboard?.writeText(roomId);
+$('copyCode').onclick = async()=>{
+
+  try{
+
+    await navigator.clipboard.writeText(roomId);
+    alert('방 코드가 복사되었습니다.');
+
+  }catch(e){
+
+    alert('복사에 실패했습니다.');
+
+  }
+
 };
 
 function render(){
-if(!roomData)return;
 
-$('roomInfo').textContent=
-(roomData.status==='playing'?'게임 진행 중':'대기실')+
-' · '+(isHost()?'방장':'참가자')+
-(isGM()?' · GM':'');
+  if(!roomData)return;
 
-$('playerCount').textContent=playerList().length+'/4명';
+  $('roomInfo').textContent =
+    (roomData.status==='playing'?'게임 진행 중':'대기실')+
+    ' · '+(isHost()?'방장':'참가자')+
+    (isGM()?' · GM':'');
 
-$('turnLabel').textContent=
-roomData.turn?.active?
-'턴 '+roomData.turn.number+' 진행 중':
-'턴 대기';
+  $('playerCount').textContent =
+    playerList().length+'/4명';
 
-renderSeats();
-renderStatus();
-renderGM();
-renderRoll();
+  $('turnLabel').textContent =
+    roomData.turn?.active
+      ? '턴 '+roomData.turn.number+' 진행 중'
+      : '턴 대기';
+
+  renderSeats();
+  renderStatus();
+  renderGM();
+  renderRoll();
+
 }
 
 function renderSeats(){
-const box=$('playerSeats');
-box.innerHTML='';
 
-playerList().forEach(p=>{
-const b=document.createElement('button');
+  const box = $('playerSeats');
+  box.innerHTML = '';
 
-b.className='player'+
-(p.uid===selectedUid?' active':'')+
-(p.uid===roomData.gmUid?' gm':'');
+  playerList().forEach(p=>{
 
-b.innerHTML=`
-<div class="avatar">${p.avatar||'👤'}</div>
-<b></b>
-<div class="small"></div>
-`;
+    const b = document.createElement('button');
 
-b.querySelector('b').textContent=
-p.name+(p.uid===roomData.gmUid?' · GM':'');
+    b.className =
+      'player'+
+      (p.uid===selectedUid?' active':'')+
+      (p.uid===roomData.gmUid?' gm':'');
 
-b.querySelector('.small').textContent=
-`HP ${p.hp}/${p.maxHp}`;
+    const avatar = document.createElement('div');
+    avatar.className = 'avatar';
+    avatar.textContent = p.avatar||'👤';
 
-b.onclick=()=>{
-selectedUid=p.uid;
-renderSeats();
-renderStatus();
-};
+    const name = document.createElement('b');
+    name.textContent =
+      p.name+(p.uid===roomData.gmUid?' · GM':'');
 
-box.appendChild(b);
-});
+    const hp = document.createElement('div');
+    hp.className = 'small';
+    hp.textContent = `HP ${p.hp}/${p.maxHp}`;
+
+    b.append(avatar,name,hp);
+
+    b.onclick = ()=>{
+
+      selectedUid = p.uid;
+
+      renderSeats();
+      renderStatus();
+
+    };
+
+    box.append(b);
+
+  });
+
 }
 
-function renderStatus(){
-const p=roomData.players?.[selectedUid||uid];
-
-if(!p){
-$('statusPanel').textContent='플레이어 아이콘을 선택하세요.';
-return;
-}
-
-const s=p.stats||{};
-
-$('statusPanel').innerHTML='';
-
-const title=document.createElement('div');
-
-title.innerHTML=
-`<b>${p.name}</b> <span class="tag">${p.race||'종족 미정'}</span>`;
-
-$('statusPanel').append(title);
-
-const hp=document.createElement('p');
-hp.textContent=`HP ${p.hp}/${p.maxHp}`;
-$('statusPanel').append(hp);
-
-const stats=document.createElement('div');
-stats.className='statgrid';
-
-Object.entries(STAT_NAMES).forEach(([k,n])=>{
-const d=document.createElement('div');
-
-d.innerHTML=`
-<label>${n}</label>
-<div>
-<b>${Number(s[k]??10)}</b>
-<span class="muted">
-(보정 ${mod(s[k]??10)>=0?'+':''}${mod(s[k]??10)})
-</span>
-</div>
-`;
-
-stats.append(d);
-});
-
-$('statusPanel').append(stats);
-
-const sk=document.createElement('p');
-
-sk.innerHTML='<b>스킬</b><br>'+
-(p.skills||[]).map(x=>
-`<span class="tag">${escapeHtml(x.name)} · ${STAT_NAMES[x.stat]||x.stat}</span>`
-).join('');
-
-$('statusPanel').append(sk);
-
-const it=document.createElement('p');
-
-it.innerHTML='<b>아이템</b><br>'+
-(p.items||[]).map(x=>
-`<span class="tag">${escapeHtml(x)}</span>`
-).join('');
-
-$('statusPanel').append(it);
-
-if((p.uid===uid||isGM())&&p.uid){
-const btn=document.createElement('button');
-
-btn.className='secondary';
-btn.textContent=p.uid===uid?'내 캐릭터 수정':'GM: 캐릭터 수정';
-btn.onclick=()=>editCharacter(p);
-
-$('statusPanel').append(btn);
-}
-}
 
 function mod(v){
-return Math.floor((Number(v)-10)/2);
+  return Math.floor((Number(v)-10)/2);
 }
 
 function escapeHtml(s){
-return String(s??'').replace(/[&<>"']/g,c=>({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;',
-'"':'&quot;',
-"'":'&#39;'
-}[c]));
+
+  return String(s??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[c]));
+
+}
+
+function renderStatus(){
+
+  const p = roomData.players?.[selectedUid||uid];
+
+  const box = $('statusPanel');
+  box.innerHTML = '';
+
+  if(!p){
+
+    box.textContent = '플레이어를 선택하세요.';
+    return;
+
+  }
+
+  const title = document.createElement('div');
+
+  const b = document.createElement('b');
+  b.textContent = p.name;
+
+  const race = document.createElement('span');
+  race.className = 'tag';
+  race.textContent = p.race||'미정';
+
+  title.append(b,race);
+  box.append(title);
+
+  const hp = document.createElement('p');
+  hp.textContent = `HP ${p.hp}/${p.maxHp}`;
+  box.append(hp);
+
+  const stats = document.createElement('div');
+  stats.className = 'statgrid';
+
+  Object.entries(STAT_NAMES).forEach(([k,n])=>{
+
+    const d = document.createElement('div');
+
+    const label = document.createElement('label');
+    label.textContent = n;
+
+    const value = document.createElement('div');
+    const score = Number(p.stats?.[k]??10);
+    const bonus = mod(score);
+
+    value.textContent =
+      score+' (보정 '+(bonus>=0?'+':'')+bonus+')';
+
+    d.append(label,value);
+    stats.append(d);
+
+  });
+
+  box.append(stats);
+
+  const skillTitle = document.createElement('p');
+  skillTitle.textContent = '스킬';
+  box.append(skillTitle);
+
+  (p.skills||[]).forEach(sk=>{
+
+    const tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.textContent =
+      sk.name+' · '+(STAT_NAMES[sk.stat]||sk.stat);
+
+    box.append(tag);
+
+  });
+
+  const itemTitle = document.createElement('p');
+  itemTitle.textContent = '아이템';
+  box.append(itemTitle);
+
+  (p.items||[]).forEach(item=>{
+
+    const tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.textContent = item;
+
+    box.append(tag);
+
+  });
+
+  if(p.uid===uid || isGM()){
+
+    const edit = document.createElement('button');
+    edit.className = 'secondary';
+    edit.textContent = '캐릭터 수정';
+
+    edit.onclick = ()=>editCharacter(p);
+
+    box.append(edit);
+
+  }
+
 }
 
 async function editCharacter(p){
-const name=prompt('캐릭터 이름',p.name);
-if(name===null)return;
 
-const race=prompt('종족',p.race||'');
-if(race===null)return;
+  if(!isGM() && p.uid!==uid)return;
 
-const hp=Number(prompt('현재 HP',p.hp));
-const maxHp=Number(prompt('최대 HP',p.maxHp));
+  const name = prompt('캐릭터 이름',p.name);
+  if(name===null)return;
 
-const stats={};
+  const race = prompt('종족',p.race||'');
+  if(race===null)return;
 
-for(const [k,n] of Object.entries(STAT_NAMES)){
-const v=Number(prompt(n+' 능력치',p.stats?.[k]??10));
-if(!Number.isFinite(v))return;
-stats[k]=v;
-}
+  const hp = Number(prompt('현재 HP',p.hp));
+  const maxHp = Number(prompt('최대 HP',p.maxHp));
 
-const items=prompt(
-'아이템을 쉼표로 구분해 입력',
-(p.items||[]).join(',')
-);
+  if(!Number.isFinite(hp)||!Number.isFinite(maxHp)){
+    alert('HP는 숫자로 입력해야 합니다.');
+    return;
+  }
 
-if(items===null)return;
+  const stats = {};
 
-const updates={
-name:cleanName(name),
-race,
-hp:Number.isFinite(hp)?hp:p.hp,
-maxHp:Number.isFinite(maxHp)?maxHp:p.maxHp,
-stats,
-items:items.split(',').map(x=>x.trim()).filter(Boolean)
-};
+  for(const [k,n] of Object.entries(STAT_NAMES)){
 
-if(!isGM()&&p.uid!==uid)return;
+    const v = Number(
+      prompt(n+' 능력치',p.stats?.[k]??10)
+    );
 
-await roomRef.child('players/'+p.uid).update(updates);
+    if(!Number.isFinite(v)){
+      alert('스텟은 숫자로 입력해야 합니다.');
+      return;
+    }
+
+    stats[k] = v;
+
+  }
+
+  const items = prompt(
+    '아이템을 쉼표로 구분하여 입력하세요.',
+    (p.items||[]).join(',')
+  );
+
+  if(items===null)return;
+
+  await roomRef.child('players/'+p.uid).update({
+
+    name:cleanName(name),
+    race,
+
+    hp:Math.max(0,Math.min(hp,maxHp)),
+    maxHp:Math.max(1,maxHp),
+
+    stats,
+
+    items:items.split(',')
+      .map(x=>x.trim())
+      .filter(Boolean)
+
+  });
+
 }
 
 function renderGM(){
-const box=$('gmControls');
-box.innerHTML='';
 
-if(!isHost()&&!isGM()){
-$('gmPanel').classList.add('hidden');
-return;
-}
+  const box = $('gmControls');
+  box.innerHTML = '';
 
-$('gmPanel').classList.remove('hidden');
+  if(!isHost()&&!isGM()){
 
-if(isHost()){
-const lab=document.createElement('label');
-lab.textContent='GM 지정 ';
+    $('gmPanel').classList.add('hidden');
+    return;
 
-const sel=document.createElement('select');
-sel.id='gmSelect';
+  }
 
-playerList().forEach(p=>{
-const o=document.createElement('option');
-o.value=p.uid;
-o.textContent=p.name;
-sel.append(o);
-});
+  $('gmPanel').classList.remove('hidden');
 
-sel.value=roomData.gmUid||roomData.hostUid;
+  if(isHost()){
 
-const set=document.createElement('button');
-set.textContent='GM 지정';
-set.onclick=()=>roomRef.update({gmUid:sel.value});
+    const label = document.createTextNode('GM 지정: ');
 
-box.append(lab,sel,set);
-}
+    const sel = document.createElement('select');
 
-if(isGM()){
+    playerList().forEach(p=>{
 
-const start=document.createElement('button');
-start.className='green';
-start.textContent=
-roomData.status==='playing'?'게임 진행 중':'게임 시작';
+      const o = document.createElement('option');
+      o.value = p.uid;
+      o.textContent = p.name;
 
-start.disabled=roomData.status==='playing';
+      sel.append(o);
 
-start.onclick=()=>roomRef.update({status:'playing'});
+    });
 
-box.append(start);
+    sel.value = roomData.gmUid;
 
-const hr=document.createElement('hr');
-hr.style.borderColor='#374151';
-box.append(hr);
+    const set = document.createElement('button');
+    set.textContent = 'GM 지정';
 
-const target=document.createElement('select');
-target.id='targetSelect';
+    set.onclick = async()=>{
 
-playerList().forEach(p=>{
-const o=document.createElement('option');
-o.value=p.uid;
-o.textContent=p.name;
-target.append(o);
-});
+      await roomRef.update({
+        gmUid:sel.value
+      });
 
-const grant=document.createElement('button');
-grant.textContent='선택 플레이어에게 D20 권한';
+    };
 
-grant.onclick=()=>{
-roomRef.child('turn').update({
-active:true,
-number:(roomData.turn?.number||0)+1,
-rollTarget:target.value,
-rollUsed:false
-});
-};
+    box.append(label,sel,set);
 
-box.append(
-document.createTextNode('판정 대상: '),
-target,
-grant
-);
+  }
 
-const end=document.createElement('button');
-end.className='danger';
-end.textContent='턴 종료';
-end.style.marginLeft='6px';
+  if(!isGM())return;
 
-end.onclick=()=>roomRef.child('turn').update({
-active:false,
-rollTarget:null,
-rollUsed:false
-});
+  const start = document.createElement('button');
+  start.className = 'green';
 
-box.append(end);
+  start.textContent =
+    roomData.status==='playing'
+      ? '게임 진행 중'
+      : '게임 시작';
 
-const hr2=document.createElement('hr');
-hr2.style.borderColor='#374151';
-box.append(hr2);
+  start.disabled = roomData.status==='playing';
 
-const psel=document.createElement('select');
-psel.id='skillPlayer';
+  start.onclick = async()=>{
 
-playerList().forEach(p=>{
-const o=document.createElement('option');
-o.value=p.uid;
-o.textContent=p.name;
-psel.append(o);
-});
+    await roomRef.update({
+      status:'playing'
+    });
 
-box.append(
-document.createTextNode('스킬 설정 대상: '),
-psel
-);
+    await systemMsg('게임이 시작되었습니다.');
 
-for(let i=0;i<4;i++){
-const row=document.createElement('div');
-row.className='skillrow';
+  };
 
-const nm=document.createElement('input');
-nm.placeholder=`스킬 ${i+1} 이름`;
-nm.id='skillName'+i;
+  box.append(start);
 
-const st=document.createElement('select');
-st.id='skillStat'+i;
+  const hr = document.createElement('hr');
+  box.append(hr);
 
-Object.entries(STAT_NAMES).forEach(([k,n])=>{
-const o=document.createElement('option');
-o.value=k;
-o.textContent=n;
-st.append(o);
-});
+  const target = document.createElement('select');
 
-row.append(nm,st);
-box.append(row);
-}
+  playerList().forEach(p=>{
 
-const save=document.createElement('button');
-save.textContent='스킬 4칸 저장';
+    const o = document.createElement('option');
+    o.value = p.uid;
+    o.textContent = p.name;
 
-save.onclick=async()=>{
-const pid=psel.value;
-const skills=[];
+    target.append(o);
 
-for(let i=0;i<4;i++){
-const n=$('skillName'+i).value.trim();
+  });
 
-if(n){
-skills.push({
-name:n,
-stat:$('skillStat'+i).value
-});
-}
-}
+  const grant = document.createElement('button');
+  grant.textContent = 'D20 판정 권한 부여';
 
-await roomRef.child('players/'+pid+'/skills').set(skills);
+  grant.onclick = async()=>{
 
-systemMsg(
-`${roomData.players[pid].name}의 스킬 설정이 변경되었습니다.`
-);
-};
+    await roomRef.child('turn').update({
 
-box.append(save);
-}
+      active:true,
+      number:(roomData.turn?.number||0)+1,
+      rollTarget:target.value,
+      rollUsed:false
+
+    });
+
+    await systemMsg(
+      roomData.players[target.value].name+
+      '에게 D20 판정 권한이 부여되었습니다.'
+    );
+
+  };
+
+  box.append(
+    document.createTextNode('판정 대상: '),
+    target,
+    grant
+  );
+
+  const end = document.createElement('button');
+  end.className = 'danger';
+  end.textContent = '턴 종료';
+  end.style.marginLeft = '6px';
+
+  end.onclick = async()=>{
+
+    await roomRef.child('turn').update({
+
+      active:false,
+      rollTarget:null,
+      rollUsed:false
+
+    });
+
+    await systemMsg('GM이 턴을 종료했습니다.');
+
+  };
+
+  box.append(end);
+
+  const hr2 = document.createElement('hr');
+  box.append(hr2);
+
+  const skillPlayer = document.createElement('select');
+
+  playerList().forEach(p=>{
+
+    const o = document.createElement('option');
+    o.value = p.uid;
+    o.textContent = p.name;
+
+    skillPlayer.append(o);
+
+  });
+
+  box.append(
+    document.createTextNode('스킬 설정 대상: '),
+    skillPlayer
+  );
+
+  for(let i=0;i<4;i++){
+
+    const row = document.createElement('div');
+    row.className = 'skillrow';
+
+    const name = document.createElement('input');
+    name.placeholder = '스킬 '+(i+1)+' 이름';
+    name.id = 'skillName'+i;
+
+    const stat = document.createElement('select');
+    stat.id = 'skillStat'+i;
+
+    Object.entries(STAT_NAMES).forEach(([k,n])=>{
+
+      const o = document.createElement('option');
+      o.value = k;
+      o.textContent = n;
+
+      stat.append(o);
+
+    });
+
+    row.append(name,stat);
+    box.append(row);
+
+  }
+
+  const save = document.createElement('button');
+  save.textContent = '스킬 설정 저장';
+
+  save.onclick = async()=>{
+
+    const pid = skillPlayer.value;
+    const skills = [];
+
+    for(let i=0;i<4;i++){
+
+      const name = $('skillName'+i).value.trim();
+
+      if(name){
+
+        skills.push({
+
+          name,
+          stat:$('skillStat'+i).value
+
+        });
+
+      }
+
+    }
+
+    await roomRef.child(
+      'players/'+pid+'/skills'
+    ).set(skills);
+
+    await systemMsg(
+      roomData.players[pid].name+
+      '의 스킬 설정이 변경되었습니다.'
+    );
+
+  };
+
+  box.append(save);
+
 }
 
 function renderRoll(){
-const t=roomData.turn||{};
-const target=t.rollTarget?
-roomData.players?.[t.rollTarget]:null;
 
-$('rollInfo').textContent=
-t.active?
-(target?
-`${target.name}에게 D20 판정 권한이 부여되었습니다.`:
-'판정 대상이 없습니다.'):
-'GM이 판정 권한을 부여할 때까지 기다리세요.';
+  const t = roomData.turn||{};
 
-$('rollBtn').disabled=!(
-t.active&&
-t.rollTarget===uid&&
-!t.rollUsed
-);
+  const target = t.rollTarget
+    ? roomData.players?.[t.rollTarget]
+    : null;
+
+  $('rollInfo').textContent =
+
+    t.active
+      ? (target
+          ? target.name+'에게 D20 판정 권한이 부여되었습니다.'
+          : '판정 대상이 없습니다.')
+      : 'GM의 판정 권한 부여를 기다리는 중입니다.';
+
+  $('rollBtn').disabled = !(
+    t.active &&
+    t.rollTarget===uid &&
+    !t.rollUsed
+  );
+
 }
 
-$('rollBtn').onclick=async()=>{
-const t=roomData?.turn;
+$('rollBtn').onclick = async()=>{
 
-if(!t?.active||t.rollTarget!==uid||t.rollUsed)return;
+  const t = roomData?.turn;
 
-const stat=$('rollStat').value;
-const p=myPlayer();
+  if(
+    !t?.active ||
+    t.rollTarget!==uid ||
+    t.rollUsed
+  )return;
 
-const die=1+Math.floor(Math.random()*20);
-const bonus=mod(p.stats?.[stat]??10);
-const total=die+bonus;
+  const stat = $('rollStat').value;
+  const p = myPlayer();
 
-const tx=await roomRef.child('turn').transaction(cur=>{
-if(!cur||!cur.active||cur.rollTarget!==uid||cur.rollUsed)return;
+  const die = 1+Math.floor(Math.random()*20);
+  const bonus = mod(p.stats?.[stat]??10);
+  const total = die+bonus;
 
-cur.rollUsed=true;
-return cur;
-});
+  const result = await roomRef.child('turn').transaction(cur=>{
 
-if(!tx.committed)return;
+    if(
+      !cur ||
+      !cur.active ||
+      cur.rollTarget!==uid ||
+      cur.rollUsed
+    )return;
 
-await roomRef.child('messages').push({
-type:'system',
-text:
-`${p.name}의 D20 판정: ${die} + ${STAT_NAMES[stat]} 보정 ${bonus>=0?'+':''}${bonus} = ${total}`,
-by:'SYSTEM',
-at:Date.now()
-});
+    cur.rollUsed = true;
+
+    return cur;
+
+  });
+
+  if(!result.committed)return;
+
+  await roomRef.child('messages').push({
+
+    type:'system',
+
+    text:
+      p.name+
+      '의 D20 판정: '+
+      die+
+      ' + '+
+      STAT_NAMES[stat]+
+      ' 보정 '+
+      (bonus>=0?'+':'')+
+      bonus+
+      ' = '+
+      total,
+
+    by:'SYSTEM',
+    at:Date.now()
+
+  });
+
 };
 
-$('sendBtn').onclick=sendChat;
+function systemMsg(text){
+
+  return roomRef.child('messages').push({
+
+    type:'system',
+    text,
+    by:'SYSTEM',
+    at:Date.now()
+
+  });
+
+}
+
+$('sendBtn').onclick = sendChat;
 
 $('chatInput').addEventListener('keydown',e=>{
-if(e.key==='Enter')sendChat();
+
+  if(e.key==='Enter'){
+    sendChat();
+  }
+
 });
 
 async function sendChat(){
-const raw=$('chatInput').value.trim();
 
-if(!raw||!roomData)return;
+  const raw = $('chatInput').value.trim();
 
-const p=myPlayer();
-if(!p)return;
+  if(!raw || !roomData)return;
 
-let type='chat';
-let text=raw;
-let skillName=null;
-let itemName=null;
+  const p = myPlayer();
 
-if(raw.startsWith('"')&&raw.endsWith('"')&&raw.length>=2){
-type='speech';
-text=raw.slice(1,-1);
+  if(!p)return;
 
-}else if(raw.startsWith("'")&&raw.endsWith("'")&&raw.length>=2){
-type='narration';
-text=raw.slice(1,-1);
+  let type = 'chat';
+  let text = raw;
 
-if(!isGM()){
-alert("작은따옴표 진행 대사는 GM만 사용할 수 있습니다.");
-return;
+  // 캐릭터 대사
+  if(
+    raw.startsWith('"') &&
+    raw.endsWith('"') &&
+    raw.length>=2
+  ){
+
+    type = 'speech';
+    text = raw.slice(1,-1);
+
+  }
+
+  // GM 진행 대사
+  else if(
+    raw.startsWith("'") &&
+    raw.endsWith("'") &&
+    raw.length>=2
+  ){
+
+    if(!isGM()){
+
+      alert('진행 대사는 GM만 사용할 수 있습니다.');
+      return;
+
+    }
+
+    type = 'narration';
+    text = raw.slice(1,-1);
+
+  }
+
+  // 스킬 사용
+  else if(raw.startsWith('//')){
+
+    const skillName = raw.slice(2).trim();
+
+    const skill = (p.skills||[]).find(
+      x=>x.name===skillName
+    );
+
+    if(!skill){
+
+      alert('GM이 설정한 스킬만 사용할 수 있습니다.');
+      return;
+
+    }
+
+    type = 'skill';
+
+    text =
+      p.name+
+      '이(가) 스킬 ['+
+      skill.name+
+      ']을(를) 사용합니다. '+
+      '(판정 능력치: '+
+      STAT_NAMES[skill.stat]+
+      ')';
+
+  }
+
+  // 아이템 사용
+  else if(
+    raw.startsWith('(') &&
+    raw.endsWith(')') &&
+    raw.length>=3
+  ){
+
+    const itemName = raw.slice(1,-1).trim();
+
+    if(!(p.items||[]).includes(itemName)){
+
+      alert('보유하지 않은 아이템입니다.');
+      return;
+
+    }
+
+    type = 'item';
+
+    text =
+      p.name+
+      '이(가) 아이템 ('+
+      itemName+
+      ')을(를) 사용합니다.';
+
+  }
+
+  else if(isGM()){
+
+    type = 'narration';
+
+  }
+
+  try{
+
+    await roomRef.child('messages').push({
+
+      type,
+      text,
+      by:p.name,
+      uid,
+      at:Date.now()
+
+    });
+
+    $('chatInput').value = '';
+
+  }catch(e){
+
+    alert('메시지 전송 실패: '+e.message);
+
+  }
+
 }
 
-}else if(raw.startsWith('//')){
-type='skill';
-skillName=raw.slice(2).trim();
+function renderMessages(snap){
 
-const skill=(p.skills||[]).find(x=>x.name===skillName);
+  const log = $('chatlog');
+  log.innerHTML = '';
 
-if(!skill){
-alert('GM이 설정한 스킬만 사용할 수 있습니다.');
-return;
-}
+  snap.forEach(ch=>{
 
-text=
-`${p.name}이(가) 스킬 [${skill.name}]을(를) 사용합니다. (판정 능력치: ${STAT_NAMES[skill.stat]})`;
+    const m = ch.val();
 
-}else if(raw.startsWith('(')&&raw.endsWith(')')&&raw.length>=3){
-type='item';
-itemName=raw.slice(1,-1).trim();
+    const d = document.createElement('div');
+    d.className = 'msg '+(m.type||'chat');
 
-if(!(p.items||[]).includes(itemName)){
-alert('보유 아이템에 없는 이름입니다. 상태창에서 아이템을 확인하세요.');
-return;
-}
+    const meta = document.createElement('div');
+    meta.className = 'meta';
 
-text=
-`${p.name}이(가) 아이템 (${itemName})을(를) 사용합니다.`;
+    meta.textContent =
+      (m.by||'알 수 없음')+
+      ' · '+
+      new Date(m.at||Date.now()).toLocaleTimeString();
 
-}else if(isGM()){
-type='narration';
+    const body = document.createElement('div');
+    body.textContent = m.text||'';
 
-}else{
-type='chat';
-}
+    d.append(meta,body);
+    log.append(d);
 
-await roomRef.child('messages').push({
-type,
-text,
-by:p.name,
-uid,
-at:Date.now()
-});
+  });
 
-$('chatInput').value='';
-}
+  log.scrollTop = log.scrollHeight;
 
-function renderMessages(){
-if(!roomRef)return;
-
-roomRef.child('messages').limitToLast(150).once('value',snap=>{
-const log=$('chatlog');
-log.innerHTML='';
-
-snap.forEach(ch=>{
-const m=ch.val();
-
-const d=document.createElement('div');
-d.className='msg '+(m.type||'chat');
-
-const meta=document.createElement('div');
-meta.className='meta';
-
-meta.textContent=
-(m.by||'알 수 없음')+
-' · '+
-new Date(m.at||Date.now()).toLocaleTimeString();
-
-const body=document.createElement('div');
-body.textContent=m.text||'';
-
-d.append(meta,body);
-log.append(d);
-});
-
-log.scrollTop=log.scrollHeight;
-});
 }
 
 init();
