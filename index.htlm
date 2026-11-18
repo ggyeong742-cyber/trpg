@@ -374,11 +374,14 @@ hr{border:0;border-top:1px solid #374151;margin:18px 0}
 <script>
 
 const firebaseConfig = {
-  apiKey: "여기에_API_KEY",
-  authDomain: "여기에_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://여기에_DATABASE_NAME.asia-southeast1.firebasedatabase.app",
-  projectId: "여기에_PROJECT_ID",
-  appId: "여기에_APP_ID"
+  apiKey: "AIzaSyBirmHg7Q-AapFRpc2z5m6sESmYe9hBu-k",
+  authDomain: "trpg-7d5c6.firebaseapp.com",
+  databaseURL: "https://trpg-7d5c6-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "trpg-7d5c6",
+  storageBucket: "trpg-7d5c6.firebasestorage.app",
+  messagingSenderId: "818028952741",
+  appId: "1:818028952741:web:815a331058a3899046614c",
+  measurementId: "G-LDHL1J683D"
 };
 
 const $ = id => document.getElementById(id);
